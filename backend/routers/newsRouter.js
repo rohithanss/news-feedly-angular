@@ -12,12 +12,19 @@ newsRouter.get("/", authentication, async (req, res) => {
 
   sources = sources != "" ? sources?.split(",") : false;
   try {
-    let news = await NewsModel.find({
-      $and: [
-        { title: { $regex: search ? search : "", $options: "i" } },
-        { source: sources ? sources : { $regex: "", $options: "i" } },
-      ],
-    })
+    // let news = await NewsModel.find({
+    //   title: { $regex: search ? search : "", $options: "i" },
+    //   source: sources ? sources : { $regex: "", $options: "i" },
+    // })
+    //   .limit(limit > 0 ? limit : 0)
+    //   .skip(skip);
+    let query = { source: sources ? sources : { $regex: "", $options: "i" } };
+
+    if (search.trim().length > 0) {
+      query["$text"] = { $search: search };
+    }
+
+    let news = await NewsModel.find(query)
       .limit(limit > 0 ? limit : 0)
       .skip(skip);
 

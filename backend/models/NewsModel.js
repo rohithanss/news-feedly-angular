@@ -18,6 +18,8 @@ const newsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+newsSchema.index({ title: "text" });
+
 const NewsModel = mongoose.model("news", newsSchema);
 
 module.exports = NewsModel;
