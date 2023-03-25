@@ -1,0 +1,30 @@
+<div id="forms">
+  <div class="switch-btns">
+    <p>Login</p>
+    <p routerLink="/signup">Register</p>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Email"
+      formControlName="email"
+    />
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <input
+      type="submit"
+      name="login-btn"
+      id="login-btn"
+      [value]="loading ? 'loading...' : 'Login'"
+      [ngClass]="{ 'disable-btn': form.invalid || loading }"
+      [disabled]="form.invalid || loading"
+    />
+  </form>
+</div>

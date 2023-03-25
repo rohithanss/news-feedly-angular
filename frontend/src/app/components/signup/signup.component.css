@@ -1,0 +1,8 @@
+.switch-btns > p:last-child {
+  background-color: #444444;
+  color: white;
+}
+.disable-btn {
+  background-color: gray;
+  cursor: not-allowed;
+}

@@ -1,0 +1,57 @@
+<div id="container">
+  <app-checkboxes (sourcesChanged)="sourcesChanged($event)"></app-checkboxes>
+
+  <div class="main">
+    <div class="search-bar">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        [(ngModel)]="search"
+        (keyup.enter)="searchNews()"
+        placeholder="Search By Title"
+      />
+      <button (click)="searchNews()">Search</button>
+    </div>
+    <div
+      class="row row-cols-1 row-cols-md-2 g-4"
+      *ngIf="newsData.status && newsData.data.length > 0"
+    >
+      <app-single-news
+        *ngFor="let news of newsData.data"
+        [news]="news"
+      ></app-single-news>
+    </div>
+    <div *ngIf="newsData.status && newsData.data.length == 0">
+      <h1 class="text-center">No News found...</h1>
+    </div>
+    <div *ngIf="newsData.status == false">
+      <h1 class="text-center">Something went wrong while fetching news</h1>
+    </div>
+    <div *ngIf="newsData.status == null">
+      <h1 class="text-center">Loading...</h1>
+    </div>
+
+    <div class="pagination">
+      <button
+        class="btn"
+        [ngClass]="{ 'btn-primary': page > 1, 'btn-secondary': page <= 1 }"
+        [disabled]="page <= 1"
+        (click)="prevPage()"
+      >
+        Prev
+      </button>
+      <button
+        class="btn btn-primary"
+        [ngClass]="{
+          'btn-primary': newsData.data.length == 10,
+          'btn-secondary': newsData.data.length < 10
+        }"
+        [disabled]="newsData.data.length < 10"
+        (click)="nextPage()"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>

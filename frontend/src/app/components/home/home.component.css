@@ -1,0 +1,53 @@
+#container {
+  display: flex;
+  gap: 20px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+  /* border: 1px solid black; */
+}
+
+app-checkboxes {
+  width: 25%;
+}
+
+.main {
+  width: 75%;
+}
+
+.search-bar {
+  margin: 20px auto;
+  width: 80%;
+  border: 1px solid gray;
+  border-radius: 15px;
+}
+.search-bar > input {
+  width: 80%;
+}
+.search-bar > button {
+  width: 20%;
+  font-weight: 600;
+  background-color: #5197d7;
+  color: white;
+}
+.search-bar > button:hover {
+  background-color: #447eb4;
+}
+.search-bar > button,
+.search-bar > input {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 5px 15px;
+}
+.search-bar + div {
+  margin: 20px 0;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

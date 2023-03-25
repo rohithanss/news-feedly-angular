@@ -1,0 +1,10 @@
+div {
+  height: 80vh;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+h1 {
+  font-size: 60px;
+  color: red;
+}

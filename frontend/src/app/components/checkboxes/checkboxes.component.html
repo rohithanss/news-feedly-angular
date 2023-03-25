@@ -1,0 +1,14 @@
+<div class="checkboxes">
+  <p>Filter by Source</p>
+  <div>
+    <label class="checkbox" *ngFor="let source of availableSources">
+      <input
+        type="checkbox"
+        [name]="source"
+        [value]="source"
+        (change)="handleChange($event.target)"
+      />
+      {{ source }}
+    </label>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.checkboxes {
+  width: 100%;
+  border-right: 1px solid gray;
+}
+
+.checkboxes > p {
+  font-size: 25px;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}
+.checkboxes > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+.checkboxes > div .checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  gap: 5px;
+  font-weight: 600;
+  width: 100%;
+}
+.checkboxes > div .checkbox > input {
+  width: 18px;
+  height: 18px;
+}

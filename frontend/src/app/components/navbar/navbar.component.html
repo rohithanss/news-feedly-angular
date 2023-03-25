@@ -1,0 +1,15 @@
+<nav>
+  <h1 routerLink="/">News Feedly</h1>
+  <div *ngIf="user[0]; else notLoggedIn">
+    <p>Rohit Hans</p>
+    <p (click)="logout()">Logout</p>
+  </div>
+
+  <ng-template #notLoggedIn>
+    <div>
+      <p routerLink="/login">Login</p>
+      <p routerLink="/signup">Signup</p>
+    </div>
+  </ng-template>
+  <!-- <div></div> -->
+</nav>
