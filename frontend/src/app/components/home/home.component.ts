@@ -38,9 +38,11 @@ export class HomeComponent implements OnInit {
 
   sourcesChanged(event: any) {
     this.sources = event;
+    this.page = 1;
     this.getData(this.sources, this.search, this.page);
   }
   searchNews(): void {
+    this.page = 1;
     this.getData(this.sources, this.search, this.page);
   }
 
